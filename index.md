@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="styles.css" type="text/css">
 
 
-<img src="https://raw.githubusercontent.com/cervari2/weatherforecast/master/forecast_image.png"; style="width:25%; border:10px solid; margin-right: 20px" align="left">
+<img src="https://raw.githubusercontent.com/cervari2/weatherforecast/master/forecast_image.png" style="width:25%; border:10px solid; margin-right: 20px" align="left">
 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at scelerisque dolor, quis viverra magna. Maecenas vitae urna quis libero mollis laoreet quis at elit. Suspendisse ultrices sem non turpis consequat convallis. Etiam maximus dolor risus, quis ultricies leo semper vel. Donec risus justo, euismod lobortis nisi et, porttitor tincidunt quam. Morbi eget enim sit amet tellus malesuada pellentesque in ac magna. Donec molestie orci nec orci iaculis dignissim eu vel lacus. Fusce nec euismod tellus. Aliquam blandit dignissim dignissim. Morbi placerat augue in erat bibendum varius.
