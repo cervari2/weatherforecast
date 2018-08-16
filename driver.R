@@ -1,8 +1,8 @@
 ## App Key = 10a2421a4a7b932c758f21eaaf87164b
 ## Add more cities. Make URL a composed string based on city. Make into a function.
 
-Location<-"4273837"
-API_KEY<-"10a2421a4a7b932c758f21eaaf87164b"
+## Location<-"4273837"
+## API_KEY<-"10a2421a4a7b932c758f21eaaf87164b"
 
 Get_Forecast <- function(Location="4273837",API_Key="10a2421a4a7b932c758f21eaaf87164b") {
   
@@ -13,7 +13,7 @@ Get_Forecast <- function(Location="4273837",API_Key="10a2421a4a7b932c758f21eaaf8
   URL<-sprintf("api.openweathermap.org/data/2.5/forecast?id=%s&mode=xml&APPID=%s",Location,API_KEY)
   URL
   
-  L<-GET(url="api.openweathermap.org/data/2.5/forecast?id=4273837&mode=xml&APPID=10a2421a4a7b932c758f21eaaf87164b")
+  L<-GET(url=URL)
   content<-rawToChar(L$content)
   
   content.split<-unlist(strsplit(content,c("<forecast>","</time>")))
@@ -53,5 +53,28 @@ Get_Forecast <- function(Location="4273837",API_Key="10a2421a4a7b932c758f21eaaf8
 }
 
 KC<-Get_Forecast(Location="4273837")
-KC
+Indy<-Get_Forecast(Location="4259418")
+Atlanta<-Get_Forecast(Location="4883772")
+Chicago<-Get_Forecast(Location="4887398")
 
+
+Update<-as.character(Sys.time())
+Update1<-as.character(sprintf("Last updated: %s",Update))
+
+
+library("ggplot2")
+
+s<-1.4
+
+forecast<-ggplot() +
+         geom_line(data=KC, aes(x=KC[,1], y = KC[,2], color="KC"),size=s) + 
+         geom_line(data=Indy, aes(x=Indy[,1], y = Indy[,2], color="Indy"),size=s) +
+         geom_line(data=Chicago, aes(x=Chicago[,1], y = Chicago[,2], color="Chicago"),size=s) + 
+         geom_line(data=Atlanta, aes(x=Atlanta[,1], y = Atlanta[,2], color="Atlanta"),size=s) +
+         ylab("Temperature (F)") +
+         xlab("Date") +
+         annotate("text",label=Update1,x=KC[12,1],y=max(KC[,2],na.rm=TRUE)-1.2) +
+         scale_x_datetime(date_breaks = "24 hour", date_labels = "%m-%d %H:00:00") +
+         theme_minimal()
+
+ggsave('forecast_image.png',forecast,device="png",path='C:/Users/D495/Documents/GitHub/weatherforecast')
