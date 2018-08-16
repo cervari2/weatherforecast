@@ -4,6 +4,8 @@
 ## Location<-"4273837"
 ## API_KEY<-"10a2421a4a7b932c758f21eaaf87164b"
 
+source(file="private_config.R")
+
 Get_Forecast <- function(Location="4273837",API_Key="10a2421a4a7b932c758f21eaaf87164b") {
   
   library("httr")
