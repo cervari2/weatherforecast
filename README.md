@@ -1,2 +1,2 @@
 # weatherforecast
-See temperature forecasts for select cities
+I have no idea what I'm doing.
