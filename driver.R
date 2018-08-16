@@ -1,3 +1,6 @@
+
+## Add more cities. 
+
 source(file="private_config.R")
 
 Get_Forecast <- function(Location="4273837",API_Key="10a2421a4a7b932c758f21eaaf87164b") {
@@ -70,7 +73,7 @@ forecast<-ggplot() +
          ylab("Temperature (F)") +
          xlab("Date") +
          annotate("text",label=Update1,x=KC[12,1],y=max(KC[,2],na.rm=TRUE)-1.2) +
-         scale_x_datetime(date_breaks = "24 hour", date_labels = "%m-%d %H:00:00") +
+         scale_x_datetime(date_breaks = "1 day", date_labels = "%m-%d ") +
          theme_minimal()
 
 ggsave('forecast_image.png',forecast,device="png",path='C:/Users/D495/Documents/GitHub/weatherforecast')
